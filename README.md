@@ -18,7 +18,7 @@ The script is not system specific. This means that you can use it for backing up
 3. Make sure that the `backup.sh` is executable: `chmod +x backup.sh`.
 4. Use the script. You can either:
     1. Run it manually from terminal: `./backup.sh`.
-    2. Run it through a cronjob: `/path/to/backup/script/backup.sh > /dev/null 2>&1`
+    2. Run it through a cronjob: `bash /path/to/this/script/backup.sh >/dev/null 2>&1`
 
 (*) Ideally, you would not include database credentials in configuration, but add them to the `.my.cnf` file in your user home directory instead. This is for added security.
 
