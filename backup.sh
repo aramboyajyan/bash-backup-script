@@ -31,6 +31,6 @@ mv "$backup_directory/$project_name-$date-database.zip" $backup_directory
 clear
 echo '********************************************************************************'
 echo 'Successfully backed up the files and the database to:'
-echo "    ./$project_name-$date-database.zip"
-echo "    ./$project_name-$date-files.zip"
+echo "    $backup_directory/$project_name-$date-database.zip"
+echo "    $backup_directory/$project_name-$date-files.zip"
 echo '********************************************************************************'
