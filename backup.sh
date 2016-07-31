@@ -20,7 +20,6 @@ pwd=$(pwd)
 echo "Generated on: $date" > $output_destination
 
 # Zip the directory.
-# zip -r "$backup_directory/$project_name-$date-files.zip" $website >> "$output_destination"
 cd "$website"
 zip -r "$backup_directory/$project_name-$date-files.zip" ./ >> "$output_destination"
 
@@ -32,23 +31,18 @@ if [ -z ${db_user+x} ] && [ -z ${db_pass+x} ]
 then
   # Credentials are not provided. This will work if you added the credentials to
   # .my.cnf file instead of adding them to backup.cfg file.
-  # mysqldump $db_name > "$backup_directory/$project_name-$date-database.sql"
   mysqldump $db_name > "$project_name-$date-database.sql"
 else
   # Database username and password were provided in the configuration file. This
   # is not the best practice for security purposes.
-  # mysqldump -u$db_user -p$db_pass $db_name > "$backup_directory/$project_name-$date-database.sql"
   mysqldump -u$db_user -p$db_pass $db_name > "$project_name-$date-database.sql"
 fi
 
 # Zip the database dump and remove the uncompressed file once done.
-# zip "$backup_directory/$project_name-$date-database.zip" "$backup_directory/$project_name-$date-database.sql" >> "$output_destination"
-# rm "$backup_directory/$project_name-$date-database.sql"
 zip "$project_name-$date-database.zip" "$project_name-$date-database.sql" >> "$output_destination"
 rm "$project_name-$date-database.sql"
 
 # Do the same with the output file.
-# zip "$backup_directory/$project_name-$date-output.zip" "$output_destination" > /dev/null 2>&1
 zip "$project_name-$date-output.zip" "$output_destination" > /dev/null 2>&1
 rm "$output_destination"
 
