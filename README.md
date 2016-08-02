@@ -28,6 +28,12 @@ The script is not system specific. This means that you can use it for backing up
 
 You can read more about end-user guidelines for MySQL password security [here](https://dev.mysql.com/doc/mysql-security-excerpt/5.7/en/password-security-user.html).
 
+The script will generate 3 compressed files:
+
+1. `[date]-[project-name]-files.zip` which contains the complete target directory.
+2. `[date]-[project-name]-database.zip` which contains the export of target database.
+3. `[date]-[project-name]-output.zip` which contains all output messages printed from the `zip` command.
+
 ## Contributing
 
 All contributions are welcome! Just clone the repo, make the changes and submit a merge request with explanation of the changes. I'll have a look as soon as I can.
