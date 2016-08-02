@@ -20,7 +20,13 @@ The script is not system specific. This means that you can use it for backing up
     1. Run it manually from terminal: `./backup.sh`.
     2. Run it through a cronjob: `bash /path/to/this/script/backup.sh >/dev/null 2>&1`
 
-(*) Ideally, you would not include database credentials in configuration, but add them to the `.my.cnf` file in your user home directory instead. This is for added security.
+(*) Ideally, you would not include database credentials in configuration, but add them to the `.my.cnf` file in the home directory of your user instead. This is for added security. Here's an example:
+
+    [client]
+    user="YOUR_USER"
+    password="YOUR_PASSWORD"
+
+You can read more about end-user guidelines for MySQL password security [here](https://dev.mysql.com/doc/mysql-security-excerpt/5.7/en/password-security-user.html).
 
 ## Contributing
 
